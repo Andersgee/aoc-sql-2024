@@ -1,0 +1,25 @@
+{
+  "name": "aoc-sql-2024",
+  "author": "andersgee",
+  "license": "MIT",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "devwatch": "tsx watch ./src/main.ts",
+    "bs": "tsx ./src/main.ts",
+    "prismagenerate": "pnpm prisma generate --sql",
+    "dbpush": "pnpm prisma db push"
+  },
+  "imports": {
+    "#src/*": "./dist/*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "prisma": "^6.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@prisma/client": "6.1.0"
+  }
+}
