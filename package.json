@@ -8,7 +8,7 @@
     "devwatch": "tsx watch ./src/main.ts",
     "bs": "tsx ./src/main.ts",
     "prismagenerate": "pnpm prisma generate --sql",
-    "dbpush": "pnpm prisma db push"
+    "dbpush": "pnpm prisma db push && pnpm prismagenerate"
   },
   "imports": {
     "#src/*": "./dist/*"

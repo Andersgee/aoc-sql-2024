@@ -2,10 +2,9 @@ import { db, typedSql } from "./client.js";
 import { readInput } from "./read-input.js";
 
 async function main() {
-  const rows = await readInput();
+  //await db.day01.createMany({ data: await readInput() });
 
-  console.log(rows);
-  const r = await db.$queryRawTyped(typedSql.getAllUsers());
+  const r = await db.$queryRawTyped(typedSql.day01a());
   console.log(r);
 }
 
