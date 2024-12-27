@@ -1,17 +1,22 @@
+import { db } from "#src/client.js";
 import { promises as fs } from "node:fs";
 import { z } from "zod";
-import { db } from "./client.js";
 
 const zRow = z.tuple([z.coerce.number(), z.coerce.number()]);
 
-export async function readInput() {
-  await db.day01.deleteMany();
-  const data = await read("input.txt");
+export async function readDay01() {
+  await readInputTest();
+  await readInput();
+}
+
+async function readInput() {
+  //await db.day01.deleteMany();
+  const data = await read("input-day01.txt");
   await db.day01.createMany({ data });
 }
-export async function readInputTest() {
-  await db.day01test.deleteMany();
-  const data = await read("input-test.txt");
+async function readInputTest() {
+  //await db.day01test.deleteMany();
+  const data = await read("input-day01-test.txt");
   await db.day01test.createMany({ data });
 }
 
