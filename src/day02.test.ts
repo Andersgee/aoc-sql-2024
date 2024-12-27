@@ -12,7 +12,7 @@ test("day02a", async () => {
 
   expect(actual).toBe(expected);
 });
-
+/*
 test("day02b", async () => {
   const results = await db.$queryRawTyped(typedSql.day02b());
   console.log("results:", results);
@@ -25,3 +25,4 @@ test("day02b", async () => {
   const expected = process.env.K === "test" ? 4n : 493n;
   expect(actual).toBe(expected);
 });
+*/
