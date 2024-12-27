@@ -1,8 +1,3 @@
--- CREATE TABLE day01 (
---     left int,
---     right int
--- );
-
 SELECT SUM(ABS(left-right)) AS answer
 FROM (
   WITH tmp AS (
@@ -11,7 +6,7 @@ FROM (
     right,
     ROW_NUMBER() OVER(ORDER BY left ASC) AS left_index,
     ROW_NUMBER() OVER(ORDER BY right ASC) AS right_index
-    FROM day01
+    FROM day01test
   ) SELECT 
   a.left,
   b.right

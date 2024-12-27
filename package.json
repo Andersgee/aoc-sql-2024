@@ -7,9 +7,10 @@
   "scripts": {
     "devwatch": "tsx watch ./src/main.ts",
     "bs": "tsx ./src/main.ts",
-    "prismagenerate": "pnpm prisma generate --sql",
-    "dbpush": "pnpm prisma db push && pnpm prismagenerate",
-    "test": "vitest"
+    "dbpush": "pnpm prisma db push --force-reset && pnpm prisma generate --sql",
+    "testreset": "pnpm dbpush && pnpm bs && vitest --run",
+    "test": "pnpm prisma generate --sql && vitest --run",
+    "testwatch": "vitest"
   },
   "imports": {
     "#src/*": "./dist/*"
