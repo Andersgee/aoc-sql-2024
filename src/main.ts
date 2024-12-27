@@ -6,9 +6,6 @@ async function main() {
   await readDay01();
   await readDay02();
   await readDay03();
-
-  //const r = await db.$queryRawTyped(typedSql.day01a());
-  //console.log(r);
 }
 
 void main();
