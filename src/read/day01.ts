@@ -4,24 +4,17 @@ import { z } from "zod";
 
 const zRow = z.tuple([z.coerce.number(), z.coerce.number()]);
 
-export async function readDay01() {
-  await readInputTest();
-  await readInput();
-}
+const PATH =
+  process.env.K === "test" ? "input-day01-test.txt" : "input-day01.txt";
 
-async function readInput() {
-  //await db.day01.deleteMany();
-  const data = await read("input-day01.txt");
+export async function readDay01() {
+  const data = await parse();
   await db.day01.createMany({ data });
 }
-async function readInputTest() {
-  //await db.day01test.deleteMany();
-  const data = await read("input-day01-test.txt");
-  await db.day01test.createMany({ data });
-}
 
-async function read(path: string) {
-  const rows = (await fs.readFile(path, { encoding: "utf-8" }))
+async function parse() {
+  console.log("day01 PATH:", PATH);
+  const rows = (await fs.readFile(PATH, { encoding: "utf-8" }))
     .trim()
     .split("\n")
     .map((row) => {

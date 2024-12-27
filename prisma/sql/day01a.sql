@@ -1,8 +1,3 @@
--- CREATE TABLE day01 (
---     left int,
---     right int
--- );
-
 SELECT SUM(ABS(left-right)) AS answer
 FROM (
   WITH tmp AS (

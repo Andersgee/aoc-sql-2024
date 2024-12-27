@@ -17,23 +17,11 @@ model day01 {
   right Int
 }
 
-model day01test {
-  id    Int @id @default(autoincrement())
-  left  Int
-  right Int
-}
-
-model day02 {
-  id       Int            @id
-  elements day02element[]
-}
-
 model day02element {
   index Int
   value Int
 
-  day02Id   Int
-  day02test day02 @relation(fields: [day02Id], references: [id], onDelete: Cascade)
+  day02Id Int
 
   @@id([day02Id, index])
 }

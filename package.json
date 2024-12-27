@@ -10,6 +10,8 @@
     "dbpush": "pnpm prisma db push --force-reset && pnpm prisma generate --sql",
     "testreset": "pnpm dbpush && pnpm bs && vitest --run",
     "test": "pnpm prisma generate --sql && vitest --run",
+    "ttest": "K=test pnpm test",
+    "ttestreset": "K=test pnpm testreset",
     "testwatch": "vitest"
   },
   "imports": {

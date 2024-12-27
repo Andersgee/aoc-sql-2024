@@ -4,33 +4,17 @@ import { z } from "zod";
 
 const zRow = z.array(z.coerce.number());
 
+const PATH =
+  process.env.K === "test" ? "input-day02-test.txt" : "input-day02.txt";
+
 export async function readDay02() {
-  await readInputTest();
+  const data = await parse();
+
+  await db.day02element.createMany({ data: data.flatMap((x) => x.elements) });
 }
 
-/*
-export async function readInput() {
-  await db.day02.deleteMany();
-  const data = await read("input.txt");
-  //await db.day02.createMany({ data });
-}
-  */
-async function readInputTest() {
-  await db.day02.deleteMany();
-
-  const data = await read("input-day02-test.txt");
-
-  await db.day02.createMany({
-    data: data.map((x) => ({ id: x.id })),
-  });
-
-  await db.day02element.createMany({
-    data: data.flatMap((x) => x.elements),
-  });
-}
-
-async function read(path: string) {
-  const rows = (await fs.readFile(path, { encoding: "utf-8" }))
+async function parse() {
+  const rows = (await fs.readFile(PATH, { encoding: "utf-8" }))
     .trim()
     .split("\n")
     .map((row, id) => {
