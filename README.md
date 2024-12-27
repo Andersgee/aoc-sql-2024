@@ -1,3 +1,3 @@
 # aoc-sql-2024
 
-welp
+some advent of code solutions in raw SQL
