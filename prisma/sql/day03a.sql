@@ -1,1 +1,3 @@
-SELECT SUM(a * b) AS answer FROM day03;
+SELECT 
+SUM(a * b) AS answer
+FROM day03;

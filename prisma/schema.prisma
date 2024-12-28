@@ -32,3 +32,11 @@ model day03 {
   b  Int
   do Int @default(1)
 }
+
+model day04cell {
+  x Int
+  y Int
+  c String
+
+  @@id([x, y])
+}
