@@ -40,3 +40,19 @@ model day04cell {
 
   @@id([x, y])
 }
+
+model day05rule {
+  a Int
+  b Int
+
+  @@id([a, b])
+  @@index([b])
+}
+
+model day05element {
+  y   Int //fk not needed
+  x   Int
+  val Int
+
+  @@id([y, x])
+}
